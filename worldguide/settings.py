@@ -39,7 +39,8 @@ ROOT_URLCONF = 'worldguide.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [  
+            BASE_DIR/'meus_templates',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,5 +86,16 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+
+    BASE_DIR / 'meus_statics',
+]
+
+STATIC_ROOT = BASE_DIR /'static'
+
+
+MEDIA_URL = '/img/'
+MEDIA_ROOT = BASE_DIR / 'img'
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

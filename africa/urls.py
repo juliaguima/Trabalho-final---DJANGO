@@ -1,8 +1,11 @@
 from django.urls import path
 from . import views
 
-app_name = 'africa'
+app_name = 'Africa'
 
 urlpatterns = [
-    path('', views.view_home, name='home'),
+    
+    path('Continente/',views.v_africaCont, name='contAfr'),
+    
+    
 ]

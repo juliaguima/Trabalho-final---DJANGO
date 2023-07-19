@@ -1,3 +1,11 @@
 from django.contrib import admin
+from . import models
 
-# Register your models here.
+class Adm_Admin(admin.ModelAdmin):
+    ...
+admin.site.register(models.mod_africa,Adm_Admin)
+
+
+ 
+
+
