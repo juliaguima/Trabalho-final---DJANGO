@@ -1,6 +1,6 @@
 from django.db import models
 
-class mod_africa(models.Model):
+class model_africa(models.Model):
 
     Continente = models.CharField(max_length=100)
     País = models.CharField(max_length=100)

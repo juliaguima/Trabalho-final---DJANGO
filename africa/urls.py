@@ -5,7 +5,7 @@ app_name = 'Africa'
 
 urlpatterns = [
     
-    path('Continente/',views.v_africaCont, name='contAfr'),
+    path('Continente/',views.v_contAfr, name='contAfr'),
     
     
 ]

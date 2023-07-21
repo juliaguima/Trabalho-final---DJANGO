@@ -3,8 +3,7 @@ from . import models
 
 
 
-def v_africaCont(request):
-
-    objetos = models.mod_africa.objects.all()
-    dicionario = {'obj': objetos }
-    return render(request,'africa/paginas/index.html',context=dicionario)
+def v_contAfr(request):
+    contact = models.model_africa.objects.all()
+    dicionario = {'conta': contact}
+    return render(request,'Africa/paginas/index.html',context=dicionario)

@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'europa',
     'oceania',
     'home',
+    'usuario.apps.UsuarioConfig',
 ]
 
 MIDDLEWARE = [

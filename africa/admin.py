@@ -1,9 +1,15 @@
 from django.contrib import admin
 from . import models
 
-class Adm_Admin(admin.ModelAdmin):
+class VersaoAdmin(admin.ModelAdmin):
     ...
-admin.site.register(models.mod_africa,Adm_Admin)
+admin.site.register(models.model_africa,VersaoAdmin)
+
+ 
+
+
+
+
 
 
  
