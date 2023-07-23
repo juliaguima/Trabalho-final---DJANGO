@@ -16,13 +16,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     ##
+    'usuario.apps.UsuarioConfig',
+    'home.apps.HomeConfig',
+    ##
     'africa',
     'america',
     'asia',
     'europa',
     'oceania',
-    'home',
-    'usuario.apps.UsuarioConfig',
+    
 ]
 
 MIDDLEWARE = [
