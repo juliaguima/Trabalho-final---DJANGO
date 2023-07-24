@@ -1,3 +1,16 @@
 from django.contrib import admin
+from . import models
 
-# Register your models here.
+class VersaoAdmin(admin.ModelAdmin):
+    ...
+admin.site.register(models.model_asia,VersaoAdmin)
+
+ 
+
+
+
+
+
+
+ 
+

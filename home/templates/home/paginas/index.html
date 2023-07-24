@@ -1,7 +1,14 @@
+
+<div>
+    <form action="{% url 'inicio:busca' %}">
+        <input type="text" name="buscando" placeholder="Onde quer visitar?">]
+        <button type="submit">Buscar</button>
+    </form>
+</div> 
 <ul>
-    <li><a href="{% url 'Africa:contAfr' %}">Africa</a></li>
-    <li><a href="{% url 'america:home' %}">America</a></li>
-    <li><a href="{% url 'asia:home' %}">Asia</a></li>
+    <li><a href="{% url 'Africa:continente' %}">Africa</a></li>
+    <li><a href="{% url 'America:continente' %}">America</a></li>
+    <li><a href="{% url 'Asia:continente' %}">Asia</a></li>
     <li><a href="{% url 'europa:home' %}">Europa</a></li>
     <li><a href="{% url 'oceania:home' %}">Oceania</a></li>
 </ul>

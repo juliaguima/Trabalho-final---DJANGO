@@ -12,6 +12,7 @@ urlpatterns = [
     path('europa/', include('europa.urls')),
     path('oceania/', include('oceania.urls')),
     path('usuario/', include('usuario.urls')),
+    
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -10,8 +10,12 @@ class model_africa(models.Model):
     OndeVisitar = models.CharField(max_length=1800)
     foto = models.ImageField(upload_to='img/%Y/%m/%d/')
     ta_publicado = models.BooleanField(default=False)
+    link = models.CharField(max_length=60)
+
+
 
 
     def __str__(self):
-        return self.Continente
-    
+        return self.País
+
+

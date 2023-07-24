@@ -1,0 +1,29 @@
+<p>header</p>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<hr>
+<p>Continente Americano</p><br>
+<p>Carrossel</p>
+<hr>
+<hr>
+
+
+{% for item in cont %}
+
+<div class="card" style="width: 18rem;">
+    <a href="detalhe/{{item.link}}"><img class="card-img-top" src="{{item.foto.url}}" alt="Card image cap"></a>
+    <div class="card-body">
+      <h6 class="card-title">{{item.País}}</h6>
+    </div>
+  </div>
+
+  
+
+{% endfor %}
+
+
+
+<hr>
+<hr>
+
+<p>Footer</p>

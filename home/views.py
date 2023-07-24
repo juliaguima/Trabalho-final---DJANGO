@@ -1,8 +1,11 @@
 from django.shortcuts import render
 from home.models import Pesquisa
+from africa.models import model_africa
 
 def view_home(request):
     return render(request, 'home/paginas/index.html')
+
+
 
 def view_busca(request):
     pesquisa = Pesquisa.objects.all()

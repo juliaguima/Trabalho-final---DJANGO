@@ -1,0 +1,38 @@
+<p>header</p>
+
+<hr>
+
+{% load static %}
+{% block app_conteudo %}
+
+
+{%if detalhe %}
+
+
+<div class="container" style="border: 0;">
+<div class="card mb-3">
+    <img src="{{ detalhe.foto.url }}" class="card-img-top" alt="...">
+
+    
+
+    <div class="card-body">
+      <h5 class="card-title">{{detalhe.Pais}}</h5>
+      <p class="card-text">Continente: {{detalhe.Continente}}</p>
+      <p class="card-text"><small class="text-body-secondary">{{detalhe.Descricao}}</small></p>
+      <p class="card-text"><small class="text-body-secondary">{{detalhe.OndeComer}}</small></p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{% endif %}
+{% endblock app_conteudo %}
+
+
+</body>
+</html>
+
+
