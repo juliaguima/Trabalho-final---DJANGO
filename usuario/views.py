@@ -72,5 +72,5 @@ def view_cadastro(request):
 
 def logout(request):
     auth.logout(request)
-    messages.sucess(request,'Logout realizado com sucesso!')
+    messages.success(request,'Logout realizado com sucesso!')
     return redirect('user:login')

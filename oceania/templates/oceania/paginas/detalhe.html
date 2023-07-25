@@ -48,7 +48,7 @@
 {% if user.is_authenticated %}
 
 <section>
-  <form action="{% url 'Asia:comentario' %}" method="POST">
+  <form action="{% url 'Oceania:comentario' %}" method="POST">
       {% csrf_token %}
       {{ formulario.Coment }}
       {{ formulario.link_url }}
