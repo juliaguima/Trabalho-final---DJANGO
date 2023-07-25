@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class model_asia(models.Model):
 
@@ -19,3 +20,17 @@ class model_asia(models.Model):
         return self.País
 
 
+
+class Comentario(models.Model):
+    coment = models.CharField(max_length=100, null=False, blank=False)
+    eh_publicada = models.BooleanField(default=True)
+    link_url = models.CharField(max_length=100, null=False, blank=False)
+    usuario = models.ForeignKey(
+        to=User, 
+        on_delete=models.SET_NULL, 
+        null=True, blank=False, 
+        related_name='asia'
+    )
+
+    def __str__(self):
+        return self.coment

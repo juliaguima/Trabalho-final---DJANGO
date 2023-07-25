@@ -5,8 +5,8 @@ app_name = 'America'
 
 urlpatterns = [
     
-    path('Continente/',views.v_americano, name='continente'),
-    path('Continente/detalhe/<str:link_url>/',views.v_detalhe, name='detalhe'),
-    
+    path('Continente/', views.v_americano, name='continente'),
+    path('Continente/detalhe/<str:link_url>/', views.v_detalhe, name='detalhe'),
+    path('comentario/', views.view_comentario, name='comentario'),
     
 ]
