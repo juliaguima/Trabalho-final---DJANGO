@@ -12,11 +12,11 @@
     {% for item in cont %} 
         {% if item.id == 1 %}
       <div class="carousel-item active">
-        <img class="d-block w-100" src="{{ item.foto.url}}" />
+        <img  class="d-block w-100" src="{{ item.carr.url}}" />
       </div>
       {% else %}
       <div class="carousel-item">
-        <img class="d-block w-100" src="{{ item.foto.url}}" />
+        <img  class="d-block w-100" src="{{ item.carr.url}}" />
       </div>
       {% endif %}
     {% endfor %}

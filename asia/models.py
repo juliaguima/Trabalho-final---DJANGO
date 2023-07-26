@@ -10,6 +10,7 @@ class model_asia(models.Model):
     OndeComer = models.CharField(max_length=1800)
     OndeVisitar = models.CharField(max_length=1800)
     foto = models.ImageField(upload_to='img/%Y/%m/%d/')
+    carr = models.ImageField(upload_to='img/%Y/%m/%d/')
     ta_publicado = models.BooleanField(default=False)
     link = models.CharField(max_length=60)
 
