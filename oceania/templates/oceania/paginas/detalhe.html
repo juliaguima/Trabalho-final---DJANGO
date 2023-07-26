@@ -1,36 +1,5 @@
 {% extends 'global/paginas/pais_detalhe.html' %}
 
 {% block comentario %}
-<section>
-  <h2 class="m-2">Comentários:</h2>
-
-  {% for comentario in comentarios %}
-
-  <div class="card">
-    <div class="card-body">
-      <h5>Comentário feito por: {{ comentario.usuario.username }}</h5>
-      {{ comentario.coment }}
-    </div>
-  </div>
-  <br>
-     
-  {% empty %}
-      <p>Nenhum comentário encontrado.</p>
-  {% endfor %}
-</section>
-
-{% if user.is_authenticated %}
-
-<section>
-  <form action="{% url 'Oceania:comentario' %}" method="POST">
-    {% csrf_token %}
-    {{ formulario.Coment }}
-    {{ formulario.link_url }}
-    <button type="submit">Enviar Comentário</button>
-  </form>
-</section> 
-
-{% else %}
-<p>Por favor, faça o login para deixar um comentário.</p>
-{% endif %}
+<form action="{% url 'Oceania:comentario' %}" method="POST">
 {% endblock %}
