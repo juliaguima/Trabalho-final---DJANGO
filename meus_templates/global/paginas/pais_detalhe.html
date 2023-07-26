@@ -1,5 +1,9 @@
+<head>
+  <title>
+    {{ detalhe.País }}
+  </title>
+</head>
 {% include 'global/parciais/header.html' %}
-
 <hr>
 
 {% load static %}
@@ -15,23 +19,54 @@
   <div>
     <h3 class="text-center m-2">{{detalhe.País}}</h3>
   </div>
-    <img src="{{ detalhe.foto.url }}" class="card-img-top" alt="...">
+    <img style="height: 650;" src="{{ detalhe.foto.url }}" class="card-img-top" alt="...">
 
     
 
     <div class="card-body">
-      <h5 class="card-title">{{detalhe.Pais}}</h5>
-      <p class="card-text">Continente: {{detalhe.Continente}}</p>
-      <p class="card-text"><small class="text-body-secondary">{{detalhe.Descricao}}</small></p>
-      <p class="card-text"><small class="text-body-secondary">Onde ficar: {{detalhe.OndeFicar}}</small></p>
-      <p class="card-text"><small class="text-body-secondary">Onde comer: {{detalhe.OndeComer}}</small></p>
-      <p class="card-text"><small class="text-body-secondary">Onde visitar: {{detalhe.OndeVisitar}}</small></p>
+      <h5 class="card-title">Sobre: </h5>
+      <p class="card-text mt-4"><small class="text-body-secondary">{{detalhe.Descricao}}</small></p>
+      <p class="card-text"><small class="text-body-secondary"><strong>Onde ficar:</strong> {{detalhe.OndeFicar}}</small></p>
+      <p class="card-text"><small class="text-body-secondary"><strong>Onde comer:</strong> {{detalhe.OndeComer}}</small></p>
+      <p class="card-text"><small class="text-body-secondary"><strong>Onde visitar:</strong> {{detalhe.OndeVisitar}}</small></p>
     </div>
+    
   
 {% endif %}
 
-{% block comentario %}
-{% endblock %}
+<section>
+  <h5 class="m-2"><i>Comentários:</i></h5>
+  
+  {% for comentario in comentarios %}
+  
+  <div class="card">
+    <div class="card-body">
+      <h6>Comentário feito por: {{ comentario.usuario.username }}</h6>
+      {{ comentario.coment }}
+    </div>
+  </div>
+  <br>
+  
+  {% empty %}
+  <p>Nenhum comentário encontrado.</p>
+  {% endfor %}
+</section>
+
+{% if user.is_authenticated %}
+
+<section>
+  {% block comentario %}
+    {% endblock %}
+    {% csrf_token %}
+    {{ formulario.Coment }}
+    {{ formulario.link_url }}
+    <button type="submit">Enviar Comentário</button>
+  </form>
+</section> 
+
+{% else %}
+<p>Por favor, faça o login para deixar um comentário.</p>
+{% endif %}
 
 </div>
 </div>

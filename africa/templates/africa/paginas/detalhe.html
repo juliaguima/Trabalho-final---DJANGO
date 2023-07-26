@@ -1,36 +1,5 @@
 {% extends 'global/paginas/pais_detalhe.html' %}
 
 {% block comentario %}
-<section>
-  <h4 class="m-2"><i>Comentários:</i></h4>
-
-  {% for comentario in comentarios %}
-
-  <div class="card">
-    <div class="card-body">
-      <h6>Comentário feito por: {{ comentario.usuario.username }}</h6>
-      {{ comentario.coment }}
-    </div>
-  </div>
-  <br>
-     
-  {% empty %}
-      <p>Nenhum comentário encontrado.</p>
-  {% endfor %}
-</section>
-
-{% if user.is_authenticated %}
-
-<section>
-  <form action="{% url 'Africa:comentario' %}" method="POST">
-    {% csrf_token %}
-    {{ formulario.Coment }}
-    {{ formulario.link_url }}
-    <button type="submit">Enviar Comentário</button>
-  </form>
-</section> 
-
-{% else %}
-<p>Por favor, faça o login para deixar um comentário.</p>
-{% endif %}
+<form action="{% url 'Africa:comentario' %}" method="POST">
 {% endblock %}
