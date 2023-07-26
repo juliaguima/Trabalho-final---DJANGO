@@ -6,21 +6,23 @@
 
 {% block conteudo %}
 
-<section>
-    
 <form action="{% url 'user:login' %}" method="POST">
-    {% csrf_token %}
-    {% for cada in formulario.visible_fields %}
-    <div class="form-group">
-      <label for="{{cada.id_for_label}}"><b>{{cada.label}}</b></label>
-      {{cada}}
-    </div>
-    {% endfor %}
-    <button type="submit" class="btn btn-primary">Entrar</button>
-    <div class="form-group">
-      <label for="text"><a href="{% url 'user:cadastro' %}"><b>Cadastre-se aqui</b></a></label>
-    </div>
-  </form>
+  {% csrf_token %}
+  {% for cada in formulario.visible_fields %}
+      <div class="form-group">
+          <label for="{{ cada.id_for_label }}"><b>{{ cada.label }}</b></label>
+          {{ cada }}
+      </div>
+  {% endfor %}
+  <button type="submit" class="btn btn-primary">Entrar</button>
+  {% if user.is_authenticated %}
+      <a href="{% url 'user:logout' %}" class="btn btn-primary">Logout</a>
+  {% else %}
+      <div class="form-group">
+          <label for="text"><a href="{% url 'user:cadastro' %}"><b>Cadastre-se aqui</b></a></label>
+      </div>
+  {% endif %}
+</form>
 </section>
 
 
