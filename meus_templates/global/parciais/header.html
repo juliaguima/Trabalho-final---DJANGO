@@ -1,3 +1,4 @@
+{% load static %}
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,9 +33,15 @@
      
      
      
+      <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'user:login' %}">
+          <img src="{% static 'global/imagem/icon.png' %}" width="48" height="50" alt="">
+        </a>
+      </nav>
+     
       <form class="form-inline my-2 my-lg-0" action="{% url 'inicio:busca' %}">
-        <input class="form-control mr-sm-2" name="buscando" type="text" placeholder="Onde deseja ir?" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <input class="form-control mr-sm-2" name="buscando" type="text" placeholder="Qual país deseja visitar?" aria-label="Search">
+        <button class="btn btn-outline my-2 my-sm-0" type="submit"><img src="{% static 'global/imagem/lupa.png' %}" width="20" height="20" alt=""></button>
       </form>
       
     </div>

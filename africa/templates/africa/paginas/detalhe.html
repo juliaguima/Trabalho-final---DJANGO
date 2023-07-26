@@ -2,13 +2,13 @@
 
 {% block comentario %}
 <section>
-  <h2 class="m-2">Comentários:</h2>
+  <h4 class="m-2"><i>Comentários:</i></h4>
 
   {% for comentario in comentarios %}
 
   <div class="card">
     <div class="card-body">
-      <h5>Comentário feito por: {{ comentario.usuario.username }}</h5>
+      <h6>Comentário feito por: {{ comentario.usuario.username }}</h6>
       {{ comentario.coment }}
     </div>
   </div>
