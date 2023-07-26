@@ -1,0 +1,34 @@
+{% include 'global/parciais/header.html' %}
+
+<hr>
+
+{% load static %}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+{%if detalhe %}
+
+
+<div class="container" style="border: 0;">
+<div class="card mb-3">
+    <img src="{{ detalhe.foto.url }}" class="card-img-top" alt="...">
+
+    
+
+    <div class="card-body">
+      <h5 class="card-title">{{detalhe.Pais}}</h5>
+      <p class="card-text">Continente: {{detalhe.Continente}}</p>
+      <p class="card-text"><small class="text-body-secondary">{{detalhe.Descricao}}</small></p>
+      <p class="card-text"><small class="text-body-secondary">{{detalhe.OndeComer}}</small></p>
+    </div>
+  
+{% endif %}
+
+{% block comentario %}
+{% endblock %}
+
+</div>
+</div>
+
+{% include 'global/parciais/footer.html' %}

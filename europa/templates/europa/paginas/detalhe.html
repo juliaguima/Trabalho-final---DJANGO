@@ -1,33 +1,7 @@
-<p>header</p>
+{% extends 'global/paginas/pais_detalhe.html' %}
 
-<hr>
-
-{% load static %}
-
-{% block app_conteudo %}
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-
-{%if detalhe %}
-
-
-<div class="container" style="border: 0;">
-<div class="card mb-3">
-    <img src="{{ detalhe.foto.url }}" class="card-img-top" alt="...">
-
-    
-
-    <div class="card-body">
-      <h5 class="card-title">{{detalhe.Pais}}</h5>
-      <p class="card-text">Continente: {{detalhe.Continente}}</p>
-      <p class="card-text"><small class="text-body-secondary">{{detalhe.Descricao}}</small></p>
-      <p class="card-text"><small class="text-body-secondary">{{detalhe.OndeComer}}</small></p>
-    </div>
-  
-{% endif %}
-
-  
- <section>
+{% block comentario %}
+<section>
   <h2>Comentários:</h2>
 
   {% for comentario in comentarios %}
@@ -49,17 +23,14 @@
 
 <section>
   <form action="{% url 'Europa:comentario' %}" method="POST">
-      {% csrf_token %}
-      {{ formulario.Coment }}
-      {{ formulario.link_url }}
-      <button type="submit">Enviar Comentário</button>
+    {% csrf_token %}
+    {{ formulario.Coment }}
+    {{ formulario.link_url }}
+    <button type="submit">Enviar Comentário</button>
   </form>
 </section> 
 
-  {% else %}
-  <p>Por favor, faça o login para deixar um comentário.</p>
+{% else %}
+<p>Por favor, faça o login para deixar um comentário.</p>
 {% endif %}
-
-</div>
-</div>
-  {% endblock app_conteudo %}
+{% endblock %}
