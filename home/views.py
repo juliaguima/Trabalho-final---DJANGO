@@ -19,11 +19,11 @@ def view_busca(request):
         if nome:
             pesquisa = pesquisa.filter(nome__icontains=nome)
     itens_filtro = []
-    itens_filtro.extend(model_africa.objects.filter(País__istartswith=nome))
+    itens_filtro.extend(model_africa.objects.filter(País__icontains=nome))
     itens_filtro.extend(model_america.objects.filter(País__istartswith=nome))
-    itens_filtro.extend(model_asia.objects.filter(País__istartswith=nome))
-    itens_filtro.extend(model_oceania.objects.filter(País__istartswith=nome))
-    itens_filtro.extend(model_europa.objects.filter(País__istartswith=nome))
+    itens_filtro.extend(model_asia.objects.filter(País__icontains=nome))
+    itens_filtro.extend(model_oceania.objects.filter(País__icontains=nome))
+    itens_filtro.extend(model_europa.objects.filter(País__icontains=nome))
 
     return render(request, 'home/paginas/busca.html', context={
         'pesquisa': pesquisa,

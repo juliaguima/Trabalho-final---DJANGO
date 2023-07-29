@@ -15,7 +15,7 @@
 
 
 <div class="container" style="border: 0;">
-<div class="card mb-3">
+<div style="border: 0;" class="card mb-3">
   <div>
     <h3 class="text-center m-2">{{detalhe.País}}</h3>
   </div>
@@ -23,7 +23,7 @@
 
     
 
-    <div class="card-body">
+    <div class="card-body" style="margin-bottom: 100px;">
       <h5 class="card-title">Sobre: </h5>
       <p class="card-text mt-4"><small class="text-body-secondary">{{detalhe.Descricao}}</small></p>
       <p class="card-text"><small class="text-body-secondary"><strong>Onde ficar:</strong> {{detalhe.OndeFicar}}</small></p>
@@ -41,8 +41,8 @@
   
   <div class="card">
     <div class="card-body">
-      <h6>Comentário feito por: {{ comentario.usuario.username }}</h6>
-      {{ comentario.coment }}
+      <p><small class="text-body-secondary"><strong>Comentário feito por:</strong> {{ comentario.usuario.username }}</small></p>
+      <p><small class="text-body-secondary">{{ comentario.coment }}</small></p>
     </div>
   </div>
   <br>
@@ -60,12 +60,12 @@
     {% csrf_token %}
     {{ formulario.Coment }}
     {{ formulario.link_url }}
-    <button type="submit">Enviar Comentário</button>
+    <button  class="btn btn-primary" type="submit">Enviar Comentário</button>
   </form>
 </section> 
 
 {% else %}
-<p>Por favor, faça o login para deixar um comentário.</p>
+<p><strong> Por favor, faça o login para deixar um comentário.</strong></p>
 {% endif %}
 
 </div>

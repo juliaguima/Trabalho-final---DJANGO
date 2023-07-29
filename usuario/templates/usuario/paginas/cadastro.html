@@ -3,19 +3,38 @@
 {% include 'global/parciais/head.html' %}
 <body>
     {% include 'global/parciais/header.html' %}
-    <div class="d-flex justify-content-center m-5" style="zoom: 1.5;">
-        <div class="bg-body-secondary p-4 rounded-4">
-            <form action="{% url 'user:cadastro' %}" method="POST">
-                {% csrf_token %}
+
+    <div class="page">
+        <form action="{% url 'user:cadastro' %}" class="formLogin" method="POST">
+        
+            <h1>Cadastro</h1>
+            <p>Cadastre-se abaixo usando seus dados! </p>
+
+            {% csrf_token %}
+            <div>
                 {% for cada in formulario.visible_fields %}
                 <div class="form-group">
                     <label for="{{cada.id_for_label}}"><b>{{cada.label}}</b></label>
                     {{cada}}
                 </div>
                 {% endfor %}
-                <button type="submit" class="btn btn-primary">Cadastrar</button>
-            </form>
-        </div>
+            </div>
+
+            <div class="row m-2">
+                <div class="col">
+                  <button type="submit" id=btn class="btn">Entrar</button>
+                  
+                  {% for msg in messages%}
+                  <div>
+                      <p>{{msg}}</p>
+                  </div>
+                  {% endfor %}
+         
+                </div>
+            
+            </div>
+        </form>
     </div>
+            {% include 'global/parciais/footer.html' %}
 </body>
 </html>

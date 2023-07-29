@@ -1,24 +1,11 @@
 {% include 'global/parciais/head.html' %}
-<div class="container w-100">
-    <div class="row align-items-start">
-        <div class="d-flex justify-content-center m-4">
-            <div class="p-5 bg-body-secondary rounded-4">
-                <form action="{% url 'inicio:busca' %}">
-                    <div class="input-group mb-3">
-                        <input class="form-control" type="text" name="buscando" placeholder="Onde quer visitar?">
-                        <button class="btn btn-outline-success" type="submit">Buscar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="d-flex justify-content-center m-3">
-            <ul class="list-group list-group-horizontal" style="list-style-type: none;">
-                <li><a class="list-group-item rounded m-1" href="{% url 'Africa:continente' %}">Africa</a></li>
-                <li><a class="list-group-item rounded m-1" href="{% url 'America:continente' %}">America</a></li>
-                <li><a class="list-group-item rounded m-1" href="{% url 'Asia:continente' %}">Asia</a></li>
-                <li><a class="list-group-item rounded m-1" href="{% url 'Europa:continente' %}">Europa</a></li>
-                <li><a class="list-group-item rounded m-1" href="{% url 'Oceania:continente' %}">Oceania</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
+{% include 'global/parciais/header.html' %}
+
+{% for msg in messages%}
+<h2 class="text-center m-2">{{msg}}</h2>
+{% endfor %}
+
+
+
+
+{% include 'global/parciais/footer.html' %}
