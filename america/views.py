@@ -7,8 +7,6 @@ from django.contrib import auth
 from america.forms import ComentarioForms
 
 
-
-
 def v_americano(request):
     cont = models.model_america.objects.all()
     dicionario = {'cont': cont}
@@ -37,6 +35,7 @@ def v_detalhe(request, link_url):
     return render(request, 'America/paginas/detalhe.html', context={'detalhe': detalhe, 'comentarios': comentarios, 'formulario': formulario})
 
 
+
 def view_comentario(request):
     if request.method == 'POST':
         formulario = ComentarioForms(request.POST)
@@ -55,3 +54,36 @@ def view_comentario(request):
         formulario = ComentarioForms()
 
     return render(request, 'America/paginas/detalhe.html', context={'formulario': formulario})
+
+
+
+
+
+def editar_comentario(request, id):
+    comentario = get_object_or_404(Comentario, id=id)
+    
+    if request.method == 'POST':
+        formulario = ComentarioForms(request.POST, initial={'Coment': comentario.coment, 'link_url': comentario.link_url, 'usuario': request.user})
+        
+        if formulario.is_valid():
+            comentario.coment = formulario.cleaned_data['Coment']
+            comentario.link_url = formulario.cleaned_data['link_url']
+            comentario.usuario = request.user 
+            comentario.save()
+            return redirect('America:detalhe', link_url=comentario.link_url)
+        else:
+            formulario = ComentarioForms(initial={'Coment': comentario.coment, 'link_url': comentario.link_url, 'usuario': request.user})
+    
+    return render(request, 'America/paginas/detalhe.html', {'formulario': formulario, 'comentarios': Comentario.objects.all()})
+
+
+def excluir_comentario(request, id):
+    comentario = get_object_or_404(Comentario, id=id)
+    
+    if request.method == 'POST':
+        comentario.delete()
+        return redirect('America:detalhe', link_url=comentario.link_url)
+
+    return render(request, 'America/paginas/detalhe.html', {'formulario': ComentarioForms(),})
+
+                        

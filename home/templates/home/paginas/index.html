@@ -1,7 +1,26 @@
-{% include 'global/parciais/head.html' %}
-{% include 'global/parciais/header.html' %}
+<head>
+    <title>
+      Home
+    </title>
+  </head>
+  {% include 'global/parciais/header.html' %}
+  
 
+  {% load static %}
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  
+  <!-- Etahn deixa essa mensagem -->
 {% for msg in messages%}
 <h2 class="text-center m-2">{{msg}}</h2>
 {% endfor %}
-{% include 'global/parciais/footer.html' %}
+
+  
+  
+  
+  
+  
+  </div>
+  </div>
+  
+  {% include 'global/parciais/footer.html' %}

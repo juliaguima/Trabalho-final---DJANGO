@@ -41,6 +41,11 @@
     <div class="card-body">
       <p><small class="text-body-secondary"><strong>Comentário feito por:</strong> {{ comentario.usuario.username }}</small></p>
       <p><small class="text-body-secondary">{{ comentario.coment }}</small></p>
+      {% block if %}
+
+
+      
+      {% endblock if %}
     </div>
   </div>
   <br>
@@ -58,13 +63,16 @@
     {% csrf_token %}
     {{ formulario.Coment }}
     {{ formulario.link_url }}
-    <button  class="btn btn-primary" type="submit">Enviar Comentário</button>
+    <button  class="btn btn-primary" type="submit">Enviar novo comentário</button>
   </form>
 </section> 
 
 {% else %}
 <p><strong> Por favor, faça o login para deixar um comentário.</strong></p>
-{% endif %}
+{% endif %} 
+
+
+
 
 </div>
 </div>
