@@ -11,30 +11,6 @@
     {% for msg in messages%}
     <h2 class="text-center m-2">{{msg}}</h2>
     {% endfor %}
-    <h1 class="text-center" style="zoom: 2.5;">Descubra novas experiências e visões!</h1>
-    <div class="container w-100">
-        <div class="row align-items-start" style="zoom: 2;">
-            <div class="d-flex justify-content-center m-4">
-                <div class="p-5 bg-body-secondary rounded-4">
-                    <form action="{% url 'inicio:busca' %}">
-                        <div class="input-group mb-3">
-                            <input class="form-control" type="text" name="buscando" placeholder="Onde quer visitar?">
-                            <button class="btn btn-outline-success" type="submit">Buscar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="d-flex justify-content-center m-3">
-                <ul class="list-group list-group-horizontal" style="list-style-type: none;">
-                    <li><a class="list-group-item rounded m-1" href="{% url 'Africa:continente' %}">Africa</a></li>
-                    <li><a class="list-group-item rounded m-1" href="{% url 'America:continente' %}">America</a></li>
-                    <li><a class="list-group-item rounded m-1" href="{% url 'Asia:continente' %}">Asia</a></li>
-                    <li><a class="list-group-item rounded m-1" href="{% url 'Europa:continente' %}">Europa</a></li>
-                    <li><a class="list-group-item rounded m-1" href="{% url 'Oceania:continente' %}">Oceania</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -43,10 +19,10 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <a href="{% url 'Europa:continente' %}"><img class="d-block w-100" src="{% static 'home/img/reichtag.jpg' %}" alt="First slide"></a>
+                <a href="{% url 'Asia:continente' %}"><img class="d-block w-100" src="{% static 'home/img/monte_fuji.jpg' %}" alt="Second slide"></a>
             </div>
             <div class="carousel-item">
-                <a href="{% url 'Asia:continente' %}"><img class="d-block w-100" src="{% static 'home/img/monte_fuji.jpg' }" alt="Second slide"></a>
+                <a href="{% url 'Europa:continente' %}"><img class="d-block w-100" src="{% static 'home/img/reichtag.jpg' %}" alt="First slide"></a>
             </div>
             <div class="carousel-item">
                 <a href="{% url 'Africa:continente' %}"><img class="d-block w-100" src="{% static 'home/img/gize.jpg' %}" alt="Third slide"></a>
@@ -60,6 +36,17 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
+    </div>
+    <div class="row row-cols-3 d-flex justify-content-center">
+        {% for item in cont|slice:":6" %}
+        <div class="card m-3" style="width: 18rem;">
+            <img class="card-img-top p-2" src="{{item.foto.url}}" alt="Card image cap">
+            <div class="card-body">
+                <h6 class="card-title">{{item.País}}</h6>
+                <a href="detalhe/{{item.link}}" class="btn btn-primary">Ver país</a>
+            </div>
+        </div>
+        {% endfor %}
     </div>
     {% include 'global/parciais/footer.html' %}
 </body>

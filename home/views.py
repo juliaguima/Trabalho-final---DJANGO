@@ -7,7 +7,14 @@ from oceania.models import model_oceania
 from europa.models import model_europa
 
 def view_home(request):
-    return render(request, 'home/paginas/index.html')
+    cont = []
+    cont.extend(model_africa.objects.all())
+    cont.extend(model_oceania.objects.all())
+    cont.extend(model_asia.objects.all())
+    cont.extend(model_europa.objects.all())
+    cont.extend(model_america.objects.all())
+    dicionario = {'cont': cont}
+    return render(request, 'home/paginas/index.html', context=dicionario)
 
 
 
